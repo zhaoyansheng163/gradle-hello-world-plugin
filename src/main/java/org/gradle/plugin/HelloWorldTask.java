@@ -7,6 +7,6 @@ public class HelloWorldTask extends DefaultTask {
 
     @TaskAction
     public void doHelloWorld() {
-        System.out.println("Hello World!");
+        System.out.println("Hello World chao!");
     }
 }
