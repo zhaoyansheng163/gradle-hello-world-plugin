@@ -1,26 +1,27 @@
 buildscript {
     repositories {
-        jcenter()
+        maven {
+            url = "http://192.168.50.201:8081/repository/maven-public/"
+        }
     }
-    dependencies {
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:0.3"
-    }
+
 }
 
 apply plugin: "java"
 apply plugin: "idea"
-apply plugin: "bintray"
 apply plugin: "maven-publish"
 
 group = 'org.gradle'
-version = '0.3'
+version = '0.5'
 
 dependencies {
     implementation gradleApi()
 }
 
 repositories {
-    jcenter()
+    maven {
+        url = "http://192.168.50.201:8081/repository/maven-public/"
+    }
 }
 
 sourceCompatibility = 1.6
@@ -54,6 +55,15 @@ def pomConfig = {
 }
 
 publishing {
+    repositories {
+        maven {
+            url = "http://192.168.50.201:8081/repository/local-maven/"
+            credentials {
+                username = "admin"
+                password = "admin123"
+            }
+        }
+    }
     publications {
         mavenJava(MavenPublication) {
             from components.java
@@ -69,17 +79,4 @@ publishing {
     }
 }
 
-//bintray {
-//    user = bintrayUser
-//    key = bintrayKey
-//    publications = ['mavenJava']
-//    pkg {
-//        userOrg = 'gradle'
-//        repo = 'gradle-plugins'
-//        name = 'gradle-hello-world-plugin'
-//        desc = "The “Hello World” of Gradle plugins. Adds a task named ‘helloWorld’ that, you guessed it, prints “Hello world!”"
-//        licenses = ['Apache-2.0']
-//        labels = ["publish"]
-//    }
-//}
 
