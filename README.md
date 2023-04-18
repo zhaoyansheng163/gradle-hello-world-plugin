@@ -18,5 +18,9 @@ gradle publishToMavenLocal
 https://betheme.net/news/txtlist_i77231v.html?action=onClick
 
 
+plugin例子及源码
+https://blog.csdn.net/liuqinhou/article/details/127797395
+https://github.com/wangli135/GradlePluginTemplate
+
 使用该插件的源码
 https://github.com/zhaoyansheng163/springboot_gradle_demo  分支：gradle_plugin
